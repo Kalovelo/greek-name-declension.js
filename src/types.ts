@@ -1,17 +1,23 @@
-export type NameCase = {
+export type Declension = {
   nominative: string;
   possesive: string;
   accusative: string;
   vocative: string;
 };
 
-export type Abnormal = {
-  ligosyllabus: string;
-  polysyllabus: string;
-};
 export type Suffix = {
-  nominative: string;
-  possesive: string;
-  accusative: string;
-  vocative: string | Abnormal;
+  simple: string;
+  intonation: string;
+};
+
+export type Abnormal = {
+  ligosyllabus: Suffix;
+  polysyllabus: Suffix;
+};
+
+export type SuffixCases = {
+  nominative: Suffix;
+  possesive: Suffix;
+  accusative: Suffix;
+  vocative: Suffix | Abnormal;
 };

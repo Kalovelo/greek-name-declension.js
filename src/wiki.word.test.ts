@@ -1,28 +1,9 @@
-import { DOUBLE_SYLLABUS } from "./constants";
-import { getSyllabusTotal, getVowelPositions, getSuffixes } from "./wiki.utils";
+import {
+  getDeclension,
+  getSyllabusTotal,
+  getVowelPositions,
+} from "./wiki.utils";
 
-const getSyllabusVowels = (word: string) => {
-  const vowelPositions = getVowelPositions(word);
-  vowelPositions.forEach((position, index) => {
-    if (DOUBLE_SYLLABUS.includes(`${word[position]}${word[position + 1]}`))
-      vowelPositions[index] = position + 1;
-  });
-  return vowelPositions;
-};
-
-const addIntonation = (word: string) => {
-  const vowelPositions = getSyllabusVowels(word);
-  const totalSyllabus = getSyllabusTotal(word);
-  switch (totalSyllabus) {
-    case 1:
-      return word;
-    case 2:
-      return vowelPositions[0];
-  }
-};
-
-it("adds intonation on 2-syllabus words on first syllabus", () =>
-  expect(addIntonation("Ντουλης")).toBe(3));
 it("Counts total syllabus", () =>
   expect(getSyllabusTotal("Απόστολος")).toBe(4));
 it("Removes syllabus count on double", () =>
@@ -149,5 +130,32 @@ describe("getNamecases", () => {
         vocative: "Αφεντούλη",
       },
     ],
-  ])("(%s)", (name, suffixes) => expect(getSuffixes(name)).toEqual(suffixes));
+    [
+      "ΑΦΕΝΤΟΥΛΗΣ",
+      {
+        nominative: "ΑΦΕΝΤΟΥΛΗΣ",
+        possesive: "ΑΦΕΝΤΟΥΛΗ",
+        accusative: "ΑΦΕΝΤΟΥΛΗ",
+        vocative: "ΑΦΕΝΤΟΥΛΗ",
+      },
+    ],
+    [
+      "Φωφώ",
+      {
+        nominative: "Φωφώ",
+        possesive: "Φωφώς",
+        accusative: "Φωφώ",
+        vocative: "Φωφώ",
+      },
+    ],
+    [
+      "Κική",
+      {
+        nominative: "Κική",
+        possesive: "Κικής",
+        accusative: "Κική",
+        vocative: "Κική",
+      },
+    ],
+  ])("(%s)", (name, suffixes) => expect(getDeclension(name)).toEqual(suffixes));
 });
