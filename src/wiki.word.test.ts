@@ -149,12 +149,30 @@ describe("getNamecases", () => {
       },
     ],
     [
+      "ΑΛΕΞΑΝΔΡΟΣ",
+      {
+        nominative: "ΑΛΕΞΑΝΔΡΟΣ",
+        possesive: "ΑΛΕΞΑΝΔΡΟΥ",
+        accusative: "ΑΛΕΞΑΝΔΡΟ",
+        vocative: "ΑΛΕΞΑΝΔΡΕ",
+      },
+    ],
+    [
       "Κική",
       {
         nominative: "Κική",
         possesive: "Κικής",
         accusative: "Κική",
         vocative: "Κική",
+      },
+    ],
+    [
+      "Κούλης",
+      {
+        nominative: "Κούλης",
+        possesive: "Κούλη",
+        accusative: "Κούλη",
+        vocative: "Κούλη",
       },
     ],
   ])("(%s)", (name, suffixes) => expect(getDeclension(name)).toEqual(suffixes));

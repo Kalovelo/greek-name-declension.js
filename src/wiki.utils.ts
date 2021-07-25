@@ -1,16 +1,6 @@
 import { DOUBLE_SYLLABUS, SUFFIXES, VOWELS } from "./constants";
 import { Declension, Abnormal, Suffix, SuffixCases } from "./types";
 
-const getSyllabusVowels = (word: string) => {
-  word = word.toLocaleLowerCase();
-  const vowelPositions = getVowelPositions(word);
-  vowelPositions.forEach((position, index) => {
-    if (DOUBLE_SYLLABUS.includes(`${word[position]}${word[position + 1]}`))
-      vowelPositions[index] = position + 1;
-  });
-  return vowelPositions;
-};
-
 export const removeDiacritics = (text: string): string =>
   text.normalize("NFD").replace(/\p{Diacritic}/gu, "");
 
@@ -73,7 +63,11 @@ export const getDeclension = (word: string): Declension => {
 
   const wordBase = word.substr(0, suffixIndex);
   const isUPPERCASE = word.toLocaleUpperCase() === word;
-  const hasIntonation = nominative.intonation === word.substr(suffixIndex);
+
+  const hasIntonation = isUPPERCASE
+    ? nominative.intonation.toLocaleUpperCase() ===
+      word.substr(suffixIndex).toLocaleUpperCase()
+    : nominative.intonation === word.substr(suffixIndex);
 
   let nameCases = [
     ...[nominative, possesive, accusative, vocative as Suffix].map(
