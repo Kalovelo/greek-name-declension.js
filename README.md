@@ -4,6 +4,14 @@
 
 No longer refer to greek users with the wrong name declension. Greet your users with 🇬🇷 **filotimo** , 🇬🇷 **meraki** and their correct ***name form***.
 
+**❌ BAD ❌**  
+Καλησπέρα Απόστολος!
+
+**✅ GOOD ✅**  
+Καλησπέρα Απόστολε!
+
+
+
 ```javascript
 const { getDeclension } = require( "greek-name-declension");
 
