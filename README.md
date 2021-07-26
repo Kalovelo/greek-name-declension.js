@@ -4,6 +4,8 @@
 
 No longer refer to greek users with the wrong name declension. Greet your users with 🇬🇷 **filotimo** , 🇬🇷 **meraki** and their correct ***name form***.
 
+You want your *scammy* emails to be more convincing? Then stop misusing your users' names!
+
 **❌ BAD ❌**  
 Καλησπέρα Απόστολος!
 
@@ -16,14 +18,14 @@ No longer refer to greek users with the wrong name declension. Greet your users 
 const { getDeclension } = require( "greek-name-declension");
 
 
-console.log(getDeclension("Γιώργος"));
+console.log(getDeclension("Φωφώ"));
 
 /*
 {
-  nominative: 'Γιώργος',
-  possesive: 'Γιώργου',
-  accusative: 'Γιώργο',
-  vocative: 'Γιώργο'
+  nominative: 'Φωφώ',
+  possesive: 'Φωφώς',
+  accusative: 'Φωφώ',
+  vocative: 'Φωφώ'
 }
 */
 ```
