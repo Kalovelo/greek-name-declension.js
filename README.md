@@ -1,6 +1,6 @@
 # greek-name-declension
 
-![npm](https://img.shields.io/npm/v/greek-name-declension?style=for-the-badge)
+[![npm](https://img.shields.io/npm/v/greek-name-declension?style=for-the-badge)](https://www.npmjs.com/package/greek-name-declension)
 
 No longer refer to greek users with the wrong name declension. Greet your users with 🇬🇷 **filotimo** , 🇬🇷 **meraki** and their correct ***name form***.
 
