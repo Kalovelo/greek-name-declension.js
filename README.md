@@ -4,7 +4,7 @@
 
 No longer refer to greek users with the wrong name declension. Greet your users with 🇬🇷 **filotimo** , 🇬🇷 **meraki** and their correct ***name form***.
 
-You want your *scammy* emails to be more convincing? Then stop misusing your users' names!
+Do you wish your *scammy* emails were more convincing? Then stop misusing your users' names!
 
 **❌ BAD ❌**  
 Καλησπέρα Απόστολος!
@@ -36,6 +36,7 @@ npm i greek-name-declension
 ```
 
 
+# 0 DEPS? 0 DEBTS! 
 
 # Supports
 
