@@ -1,5 +1,7 @@
 # greek-name-declension
 
+![npm](https://img.shields.io/npm/v/greek-name-declension?style=for-the-badge)
+
 No longer refer to greek users with the wrong name declension. Greet your users with 🇬🇷 **filotimo** , 🇬🇷 **meraki** and their correct ***name form***.
 
 ```javascript
@@ -18,9 +20,16 @@ console.log(getDeclension("Γιώργος"));
 */
 ```
 
-## Supports
+# Installation
+```
+npm i greek-name-declension
+```
 
-### Capitalization 👌
+
+
+# Supports
+
+## Capitalization 👌
 ```javascript
 console.log(getDeclension("Αγαμέμνων"));
 /*
@@ -33,7 +42,7 @@ console.log(getDeclension("Αγαμέμνων"));
 */
 ```
 
-### lowercase 👍
+## lowercase 👍
 ```javascript
 console.log(getDeclension("κούλα"));
 /*
@@ -46,7 +55,7 @@ console.log(getDeclension("κούλα"));
 */
 ```
 
-### UPPERCASE 🤏
+## UPPERCASE 🤏
 ```javascript
 console.log(getDeclension("ΒΑΓΓΕΛΑΣ"));
 /*
@@ -59,7 +68,7 @@ console.log(getDeclension("ΒΑΓΓΕΛΑΣ"));
 */
 ```
 
-### WITHOUT INTONATION ✌️
+## WITHOUT INTONATION ✌️
 ```javascript
 console.log(getDeclension("Δημητρης"));
 /*
@@ -71,7 +80,7 @@ console.log(getDeclension("Δημητρης"));
 }
 */
 ```
-### ΝΟ DECLENSION? NO PROBLEM 👐
+## ΝΟ DECLENSION? NO PROBLEM 👐
 ```javascript
 console.log(getDeclension("Δαβίδ"));
 /*
