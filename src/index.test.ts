@@ -21,6 +21,15 @@ describe("getNamecases", () => {
       },
     ],
     [
+      "Γιώργος",
+      {
+        nominative: "Γιώργος",
+        possesive: "Γιώργου",
+        accusative: "Γιώργο",
+        vocative: "Γιώργο",
+      },
+    ],
+    [
       "Γεωργία",
       {
         nominative: "Γεωργία",
@@ -48,6 +57,15 @@ describe("getNamecases", () => {
       },
     ],
     [
+      "αγαμέμνων",
+      {
+        nominative: "αγαμέμνων",
+        possesive: "αγαμέμνονος",
+        accusative: "αγαμέμνονα",
+        vocative: "αγαμέμνων",
+      },
+    ],
+    [
       "Νικολέτα",
       {
         nominative: "Νικολέτα",
@@ -66,12 +84,12 @@ describe("getNamecases", () => {
       },
     ],
     [
-      "Αλέξανδρος",
+      "ΒΑΓΓΕΛΑΣ",
       {
-        nominative: "Αλέξανδρος",
-        possesive: "Αλέξανδρου",
-        accusative: "Αλέξανδρο",
-        vocative: "Αλέξανδρε",
+        nominative: "ΒΑΓΓΕΛΑΣ",
+        possesive: "ΒΑΓΓΕΛΑ",
+        accusative: "ΒΑΓΓΕΛΑ",
+        vocative: "ΒΑΓΓΕΛΑ",
       },
     ],
     [

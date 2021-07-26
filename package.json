@@ -1,9 +1,10 @@
 {
   "name": "greek-name-declension",
   "version": "1.0.0",
-  "description": "",
+  "description": "Refer to greek users with meraki, filotimo and the correct declension.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "keywords": ["greek names","greek declension","greek format","strings","meraki","filotimo"],
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watchAll",

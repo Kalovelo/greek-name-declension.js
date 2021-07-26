@@ -18,7 +18,7 @@ export const ALLOWED_SUFFIXES = [
 
 export const ALLOWED_DOUBLE_SUFFIXES = ["ων", "ών"];
 
-export const DOUBLE_SYLLABUS = ["ευ", "αυ", "ου"];
+export const DOUBLE_SYLLABUS = ["ευ", "αυ", "ου", "ιω", "ιο"];
 
 export const VOWELS = ["α", "ι", "ε", "η", "ο", "υ", "ω"];
 
