@@ -1,14 +1,14 @@
 import { DOUBLE_SYLLABUS, SUFFIXES, VOWELS } from "./constants";
 import { Declension, Abnormal, Suffix, SuffixCases } from "./types";
 
-export const removeDiacritics = (text: string): string =>
+const _removeDiacritics = (text: string): string =>
   text.normalize("NFD").replace(/\p{Diacritic}/gu, "");
 
-export const formatWord = (word: string): string =>
-  removeDiacritics(word).toLowerCase();
+const _formatWord = (word: string): string =>
+  _removeDiacritics(word).toLowerCase();
 
-export const getSyllabusTotal = (word: string): number => {
-  word = formatWord(word);
+const _getSyllabusTotal = (word: string): number => {
+  word = _formatWord(word);
   let total = 0;
   const wordArray = word.split("");
   wordArray.forEach((letter) => (total += VOWELS.includes(letter) ? 1 : 0));
@@ -16,17 +16,7 @@ export const getSyllabusTotal = (word: string): number => {
   return total;
 };
 
-export const getVowelPositions = (word: string): number[] => {
-  word = formatWord(word);
-  const positions: number[] = [];
-  const wordArray = word.split("");
-  wordArray.forEach((letter, index) => {
-    if (VOWELS.includes(letter)) positions.push(index);
-  });
-  return positions;
-};
-
-const findSuffix = (
+const _getSuffixes = (
   word: string,
   index = 0
 ): { suffixes: SuffixCases; suffixIndex: number } => {
@@ -42,24 +32,24 @@ const findSuffix = (
     );
   });
 
-  if (!suffixes) return findSuffix(word, index + 1);
+  if (!suffixes) return _getSuffixes(word, index + 1);
 
   return { suffixes, suffixIndex };
 };
 
-const handleAbnormal = (possibleAbnormal: Suffix | Abnormal, word: string) => {
+const _handleAbnormal = (possibleAbnormal: Suffix | Abnormal, word: string) => {
   if ((possibleAbnormal as Abnormal).ligosyllabus) {
-    return getSyllabusTotal(word) > 2
+    return _getSyllabusTotal(word) > 2
       ? (possibleAbnormal as Abnormal).polysyllabus
       : (possibleAbnormal as Abnormal).ligosyllabus;
   } else return possibleAbnormal as Suffix;
 };
 
 export const getDeclension = (word: string): Declension => {
-  const { suffixes, suffixIndex } = findSuffix(word);
+  const { suffixes, suffixIndex } = _getSuffixes(word);
 
   const { nominative, possesive, accusative } = { ...suffixes };
-  const vocative = handleAbnormal(suffixes.vocative, word);
+  const vocative = _handleAbnormal(suffixes.vocative, word);
 
   const wordBase = word.substr(0, suffixIndex);
   const isUPPERCASE = word.toLocaleUpperCase() === word;

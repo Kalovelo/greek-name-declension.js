@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2016",
     "module": "commonjs",
-    "rootDir": "./",
+    "rootDir": "./src/",
     "outDir": "./build",
     "esModuleInterop": true,
     "strict": true,
@@ -13,9 +13,11 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
+    "declaration": true
   }, 
   "exclude": [
-    "./node_modules"
+    "./node_modules",
+    "build"
   ]
 }
     

@@ -1,15 +1,4 @@
-import {
-  getDeclension,
-  getSyllabusTotal,
-  getVowelPositions,
-} from "./wiki.utils";
-
-it("Counts total syllabus", () =>
-  expect(getSyllabusTotal("Απόστολος")).toBe(4));
-it("Removes syllabus count on double", () =>
-  expect(getSyllabusTotal("Έυη")).toBe(2));
-it("Gets Vowel Positions", () =>
-  expect(getVowelPositions("Απόστολος")).toEqual([0, 2, 5, 7]));
+import { getDeclension } from ".";
 
 describe("getNamecases", () => {
   test.each([
@@ -158,12 +147,12 @@ describe("getNamecases", () => {
       },
     ],
     [
-      "Κική",
+      "Λουκάρδος",
       {
-        nominative: "Κική",
-        possesive: "Κικής",
-        accusative: "Κική",
-        vocative: "Κική",
+        nominative: "Λουκάρδος",
+        possesive: "Λουκάρδου",
+        accusative: "Λουκάρδο",
+        vocative: "Λουκάρδε",
       },
     ],
     [
@@ -175,5 +164,17 @@ describe("getNamecases", () => {
         vocative: "Κούλη",
       },
     ],
+    [
+      "Αστέρας",
+      {
+        nominative: "Αστέρας",
+        possesive: "Αστέρα",
+        accusative: "Αστέρα",
+        vocative: "Αστέρα",
+      },
+    ],
   ])("(%s)", (name, suffixes) => expect(getDeclension(name)).toEqual(suffixes));
+
+  it("throws an Error when name suffix is not found", () =>
+    expect(() => getDeclension("asdasds")).toThrowError());
 });

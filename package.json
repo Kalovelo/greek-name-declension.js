@@ -1,16 +1,16 @@
 {
-  "name": "greek-namecases.js",
+  "name": "greek-name-declension",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watchAll",
     "build": "tsc",
     "build:watch": "onchange 'src/**/*.ts' -- npm run build",
     "view:coverage": "serve coverage/lcov-report",
-    "clean": "rm -rf coverage src/**/*.js src/**/*.map",
-    "start": "node src/index.js"
+    "clean": "rm -rf coverage src/**/*.js src/**/*.map"
   },
   "author": "Kalovelo",
   "license": "ISC",
