@@ -71,4 +71,16 @@ console.log(getDeclension("Δημητρης"));
 }
 */
 ```
+### ΝΟ DECLENSION? NO PROBLEM 👐
+```javascript
+console.log(getDeclension("Δαβίδ"));
+/*
+{
+  nominative: "Δαβίδ",
+  possesive: "Δαβίδ",
+  accusative: "Δαβίδ",
+  vocative: "Δαβίδ",
+}
+*/
+```
 

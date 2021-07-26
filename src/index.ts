@@ -46,33 +46,42 @@ const _handleAbnormal = (possibleAbnormal: Suffix | Abnormal, word: string) => {
 };
 
 export const getDeclension = (word: string): Declension => {
-  const { suffixes, suffixIndex } = _getSuffixes(word);
+  try {
+    const { suffixes, suffixIndex } = _getSuffixes(word);
 
-  const { nominative, possesive, accusative } = { ...suffixes };
-  const vocative = _handleAbnormal(suffixes.vocative, word);
+    const { nominative, possesive, accusative } = { ...suffixes };
+    const vocative = _handleAbnormal(suffixes.vocative, word);
 
-  const wordBase = word.substr(0, suffixIndex);
-  const isUPPERCASE = word.toLocaleUpperCase() === word;
+    const wordBase = word.substr(0, suffixIndex);
+    const isUPPERCASE = word.toLocaleUpperCase() === word;
 
-  const hasIntonation = isUPPERCASE
-    ? nominative.intonation.toLocaleUpperCase() ===
-      word.substr(suffixIndex).toLocaleUpperCase()
-    : nominative.intonation === word.substr(suffixIndex);
+    const hasIntonation = isUPPERCASE
+      ? nominative.intonation.toLocaleUpperCase() ===
+        word.substr(suffixIndex).toLocaleUpperCase()
+      : nominative.intonation === word.substr(suffixIndex);
 
-  let nameCases = [
-    ...[nominative, possesive, accusative, vocative as Suffix].map(
-      (nameCase: Suffix) =>
-        wordBase.concat(hasIntonation ? nameCase.intonation : nameCase.simple)
-    ),
-  ];
+    let nameCases = [
+      ...[nominative, possesive, accusative, vocative as Suffix].map(
+        (nameCase: Suffix) =>
+          wordBase.concat(hasIntonation ? nameCase.intonation : nameCase.simple)
+      ),
+    ];
 
-  if (isUPPERCASE)
-    nameCases = nameCases.map((nameCase) => nameCase.toLocaleUpperCase());
+    if (isUPPERCASE)
+      nameCases = nameCases.map((nameCase) => nameCase.toLocaleUpperCase());
 
-  return {
-    nominative: nameCases[0],
-    possesive: nameCases[1],
-    accusative: nameCases[2],
-    vocative: nameCases[3],
-  };
+    return {
+      nominative: nameCases[0],
+      possesive: nameCases[1],
+      accusative: nameCases[2],
+      vocative: nameCases[3],
+    };
+  } catch (e) {
+    return {
+      nominative: word,
+      possesive: word,
+      accusative: word,
+      vocative: word,
+    };
+  }
 };

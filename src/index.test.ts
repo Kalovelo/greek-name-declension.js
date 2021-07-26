@@ -191,8 +191,14 @@ describe("getNamecases", () => {
         vocative: "Αστέρα",
       },
     ],
+    [
+      "Δαβίδ",
+      {
+        nominative: "Δαβίδ",
+        possesive: "Δαβίδ",
+        accusative: "Δαβίδ",
+        vocative: "Δαβίδ",
+      },
+    ],
   ])("(%s)", (name, suffixes) => expect(getDeclension(name)).toEqual(suffixes));
-
-  it("throws an Error when name suffix is not found", () =>
-    expect(() => getDeclension("asdasds")).toThrowError());
 });
