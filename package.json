@@ -5,6 +5,10 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "keywords": ["greek names","greek declension","greek format","strings","meraki","filotimo"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalovelo/greek-name-declension.js.git"
+  },
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watchAll",
