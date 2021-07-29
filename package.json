@@ -1,15 +1,23 @@
 {
   "name": "greek-name-declension",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Refer to greek users with meraki, filotimo and the correct declension.",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
-  "keywords": ["greek names","greek declension","greek format","strings","meraki","filotimo"],
+  "main": "build",
+  "keywords": [
+    "greek names",
+    "greek declension",
+    "greek format",
+    "strings",
+    "meraki",
+    "filotimo"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kalovelo/greek-name-declension.js.git"
   },
+  "files": ["src"],
   "scripts": {
+    "prepare": "npm run build",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watchAll",
     "build": "tsc",

@@ -45,8 +45,16 @@ const _handleAbnormal = (possibleAbnormal: Suffix | Abnormal, word: string) => {
   } else return possibleAbnormal as Suffix;
 };
 
+const _checkFormat = (word: string) => {
+  if (word.length === 0) throw new Error("Greek names cannot be null.");
+  if (/[^α-ωΑ-Ωά-ώΆ-Ώ]/gi.test(word))
+    throw new Error("Greek names should only include greek letters.");
+};
+
 export const getDeclension = (word: string): Declension => {
+  _checkFormat(word); // if format is bad, throw an error.
   try {
+    // if format is good, try to find suffixes.
     const { suffixes, suffixIndex } = _getSuffixes(word);
 
     const { nominative, possesive, accusative } = { ...suffixes };

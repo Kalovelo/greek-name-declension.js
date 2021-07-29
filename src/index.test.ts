@@ -202,3 +202,12 @@ describe("getNamecases", () => {
     ],
   ])("(%s)", (name, suffixes) => expect(getDeclension(name)).toEqual(suffixes));
 });
+
+it("should throw error when a name contains a number", () =>
+  expect(() => getDeclension("Σίσσ1")).toThrowError());
+it("should throw error when a name contains space", () =>
+  expect(() => getDeclension("Σίσ συ")).toThrowError());
+it("should throw error when a name contains symbols", () =>
+  expect(() => getDeclension("Σίσ!!@συ")).toThrowError());
+it("should throw error when a name doesn't include a single letter", () =>
+  expect(() => getDeclension("")).toThrowError());
