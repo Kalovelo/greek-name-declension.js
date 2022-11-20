@@ -26,7 +26,7 @@
     "clean": "rm -rf coverage src/**/*.js src/**/*.map"
   },
   "author": "Kalovelo",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.14.8",
